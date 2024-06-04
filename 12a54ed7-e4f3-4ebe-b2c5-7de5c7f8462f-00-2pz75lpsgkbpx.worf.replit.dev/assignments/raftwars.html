@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from 12a54ed7-e4f3-4ebe-b2c5-7de5c7f8462f-00-2pz75lpsgkbpx.worf.replit.dev/assignments/raftwars.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Jun 2024 02:04:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="fav.html">
+    <title>Mexi's Classroom</title>
+    <style>
+        body {
+            background-color: #0033a1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .embed-container {
+            width: 80vw;
+            height: 45vw;
+            max-width: 1000px;
+            max-height: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .embed-container object {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #fullscreen-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 3;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            z-index: 1;
+        }
+
+        h3 {
+            color: #FFF;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle container -->
+    <div id="particles-js"></div>
+
+    <!-- Embed container for flash content -->
+    <div class="embed-container">
+        <object id="embedded-content" data="https://mexisofunny.github.io/goofyarchive/raft-wars.swf" type="application/x-shockwave-flash" style="width: 100%; height: 100%;">
+            <param name="scale" value="exactfit">
+            <param name="allowFullScreen" value="true">
+        </object>
+    </div>
+
+    <!-- Fullscreen button -->
+    <button id="fullscreen-button">Fullscreen</button>
+
+    <!-- Particle.js script -->
+    <script src="../../cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": false,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": false,
+                        "mode": "push"
+                    },
+                    "resize": false
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Fullscreen button functionality
+        document.getElementById("fullscreen-button").addEventListener("click", function() {
+            var embed = document.getElementById("embedded-content");
+            if (embed.requestFullscreen) {
+                embed.requestFullscreen();
+            } else if (embed.mozRequestFullScreen) { // Firefox
+                embed.mozRequestFullScreen();
+            } else if (embed.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                embed.webkitRequestFullscreen();
+            } else if (embed.msRequestFullscreen) { // IE/Edge
+                embed.msRequestFullscreen();
+            }
+        });
+    </script>
+
+    <!-- Ruffle script for flash content -->
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.addEventListener("load", function() {
+            var ruffle = window.RufflePlayer.newest();
+            var object = document.getElementById("embedded-content");
+            ruffle.createPlayer(object);
+        });
+    </script>
+</body>
+
+<!-- Mirrored from 12a54ed7-e4f3-4ebe-b2c5-7de5c7f8462f-00-2pz75lpsgkbpx.worf.replit.dev/assignments/raftwars.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Jun 2024 02:04:52 GMT -->
+</html>
